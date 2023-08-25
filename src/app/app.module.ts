@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -38,7 +38,8 @@ export function kcFactory(kcService: KeycloakService){
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    KeycloakAngularModule
+    KeycloakAngularModule,
+  
   ],
   providers: [ 
     { 
