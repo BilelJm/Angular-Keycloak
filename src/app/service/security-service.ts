@@ -12,14 +12,13 @@ export class SecurityService {
     this.kcService.keycloakEvents$.subscribe({
       next: (e) => {
         console.log("Keycloak event:", e.type);
-        // Handle other events if needed
       }
     });
     
     // Load user profile outside the subscription
     this.loadUserProfileIfLoggedIn();
   }
-  
+  // Load user profile if already loggedin
   private async loadUserProfileIfLoggedIn() {
     if (await this.kcService.isLoggedIn()) {
       const profile = await this.kcService.loadUserProfile();
@@ -27,6 +26,7 @@ export class SecurityService {
     }
   }
   
+  // Get user roles from KeycloakService 
   public hasRoleIn(roles:string[]):boolean{
     let userRoles = this.kcService.getUserRoles();
     for(let role of roles){

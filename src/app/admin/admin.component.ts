@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
 
   adminData: string = '';
 
-  constructor(private backendService: BackendService, private kcService: KeycloakService, private securityService : SecurityService) { }
+  constructor(private backendService: BackendService, private kcService: KeycloakService, public securityService : SecurityService) { }
 
   ngOnInit(): void {
     this.securityService.kcService.getToken().then(token => {
@@ -40,4 +40,5 @@ export class AdminComponent implements OnInit {
 
     );
   }
+  userRoles: string[] = this.securityService.kcService.getUserRoles(true);
 }

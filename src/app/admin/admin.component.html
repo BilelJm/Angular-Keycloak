@@ -1,3 +1,52 @@
-<p>admin works!</p>
 
-<h2>{{ adminData }}</h2>
+<section style="background-color: #eee;">
+    <div class="container py-5">
+      <h1 class="user-data-header">{{ adminData }}</h1>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">First Name:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ securityService.profile?.firstName }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Last Name:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ securityService.profile?.lastName }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ securityService.profile?.email }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Role:</p>
+              </div>
+              <div class="col-sm-9">
+                  <p class="text-muted mb-0">
+                      <ng-container *ngFor="let role of userRoles">
+                        <ng-container *ngIf="role === 'ADMIN' || role === 'USER'">{{ role }}</ng-container>
+                      </ng-container>
+                    </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
